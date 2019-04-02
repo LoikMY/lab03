@@ -12,6 +12,19 @@ input_numbers(size_t count) {
     return result;
 }
 
+void find_minmax(vector<double> numbers, double& min, double& max) {
+    min = numbers[0];
+    max = numbers[0];
+    for (double number : numbers) {
+        if (number < min) {
+            min = number;
+        }
+        if (number > max) {
+            max = number;
+        }
+    }
+}
+
 int main() {
     // ¬вод данных
     size_t number_count;
@@ -27,16 +40,9 @@ int main() {
     cin >> bin_count;
 
     // ќбработка данных
-    double min = numbers[0];
-    double max = numbers[0];
-    for (double number : numbers) {
-        if (number < min) {
-            min = number;
-        }
-        if (number > max) {
-            max = number;
-        }
-    }
+    double min, max;
+    find_minmax(numbers, min, max);
+
 
     vector<size_t> bins(bin_count);
     for (double number : numbers) {
