@@ -39,29 +39,8 @@ using namespace std;
     return result;
 }
 
-int main() {
-    // Ввод данных
-    size_t number_count;
-    cerr << "Enter number count: ";
-    cin >> number_count;
-
-    cerr << "Enter numbers: ";
-    const vector<double> & numbers = input_numbers(number_count);
-
-
-    size_t bin_count;
-    cerr << "Enter column count: ";
-    cin >> bin_count;
-
-    // Обработка данных
-
-
-    const auto bins = make_histogram(numbers, bin_count);
-
-
-
-
-    // Вывод данных
+   void show_histogram_text(const vector<size_t>& bins )
+   {
     const size_t SCREEN_WIDTH = 80;
     const size_t MAX_ASTERISK = SCREEN_WIDTH - 4 - 1;
 
@@ -93,6 +72,29 @@ int main() {
         }
         cout << '\n';
     }
+   }
+
+int main() {
+    // Ввод данных
+    size_t number_count;
+    cerr << "Enter number count: ";
+    cin >> number_count;
+
+    cerr << "Enter numbers: ";
+    const vector<double> & numbers = input_numbers(number_count);
+
+
+    size_t bin_count;
+    cerr << "Enter column count: ";
+    cin >> bin_count;
+
+    // Обработка данных
+
+    const auto bins = make_histogram(numbers, bin_count);
+
+    // Вывод данных
+
+    show_histogram_text(bins);
 
     return 0;
 }
